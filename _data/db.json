@@ -1,44 +1,55 @@
 {
     "movies": [
-        {
-            "id": "1",
-            "title": "Iron Man"
-        },
-        {
-            "id": "2",
-            "title": "The Incredible Hulk"
-        },
-        {
-            "id": "3",
-            "title": "Iron Man 2"
-        },
-        {
-            "id": "4",
-            "title": "Thor"
-        },
-        {
-            "id": "5",
-            "title": "Captain America: The First Avenger"
-        },
-        {
-            "id": "6",
-            "title": "The Avengers"
-        },
-        {
-            "id": "7",
-            "title": "Iron Man 3"
-        },
-        {
-            "id": "8",
-            "title": "Thor: The Dark World"
-        },
-        {
-            "id": "9",
-            "title": "Captain America: The Winter Soldier"
-        },
-        {
-            "id": "10",
-            "title": "Guardians of the Galaxy"
-        }
+      {
+        "id": 1,
+        "title": "Iron Man",
+        "prequels": ["Iron Man 2", "The Avengers", "Guardians of the Galaxy", "Thor: The Dark World"]
+      },
+      {
+        "id": 2,
+        "title": "The Incredible Hulk",
+        "prequels": ["The Avengers", "Thor", "Guardians of the Galaxy", "Captain America: The First Avenger"]
+      },
+      {
+        "id": 3,
+        "title": "Iron Man 2",
+        "prequels": ["Iron Man", "The Avengers", "Guardians of the Galaxy"]
+      },
+      {
+        "id": 4,
+        "title": "Thor",
+        "prequels": ["Thor: The Dark World", "The Avengers", "Guardians of the Galaxy"]
+      },
+      {
+        "id": 5,
+        "title": "Captain America: The First Avenger",
+        "prequels": ["Captain America: The Winter Soldier", "The Avengers"]
+      },
+      {
+        "id": 6,
+        "title": "The Avengers",
+        "prequels": ["Iron Man", "The Incredible Hulk", "Thor", "Captain America: The First Avenger"]
+      },
+      {
+        "id": 7,
+        "title": "Iron Man 3",
+        "prequels": ["Iron Man", "Iron Man 2", "The Avengers", "Thor: The Dark World", "Guardians of the Galaxy"]
+      },
+      {
+        "id": 8,
+        "title": "Thor: The Dark World",
+        "prequels": ["Thor", "The Avengers", "Guardians of the Galaxy", "Captain America: The Winter Soldier"]
+      },
+      {
+        "id": 9,
+        "title": "Captain America: The Winter Soldier",
+        "prequels": ["Captain America: The First Avenger", "The Avengers", "Thor: The Dark World"]
+      },
+      {
+        "id": 10,
+        "title": "Guardians of the Galaxy",
+        "prequels": ["The Incredible Hulk", "Iron Man 3"]
+      }
     ]
-}
+  }
+  

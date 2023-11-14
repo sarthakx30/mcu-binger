@@ -4,7 +4,7 @@
 
 /* Target the scrollbar track */
 ul::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 /* Target the scrollbar thumb (the draggable bar) */
