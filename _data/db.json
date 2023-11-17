@@ -1,55 +1,74 @@
 {
-    "movies": [
-      {
-        "id": 1,
-        "title": "Iron Man",
-        "prequels": ["Iron Man 2", "The Avengers", "Guardians of the Galaxy", "Thor: The Dark World"]
-      },
-      {
-        "id": 2,
-        "title": "The Incredible Hulk",
-        "prequels": ["The Avengers", "Thor", "Guardians of the Galaxy", "Captain America: The First Avenger"]
-      },
-      {
-        "id": 3,
-        "title": "Iron Man 2",
-        "prequels": ["Iron Man", "The Avengers", "Guardians of the Galaxy"]
-      },
-      {
-        "id": 4,
-        "title": "Thor",
-        "prequels": ["Thor: The Dark World", "The Avengers", "Guardians of the Galaxy"]
-      },
-      {
-        "id": 5,
-        "title": "Captain America: The First Avenger",
-        "prequels": ["Captain America: The Winter Soldier", "The Avengers"]
-      },
-      {
-        "id": 6,
-        "title": "The Avengers",
-        "prequels": ["Iron Man", "The Incredible Hulk", "Thor", "Captain America: The First Avenger"]
-      },
-      {
-        "id": 7,
-        "title": "Iron Man 3",
-        "prequels": ["Iron Man", "Iron Man 2", "The Avengers", "Thor: The Dark World", "Guardians of the Galaxy"]
-      },
-      {
-        "id": 8,
-        "title": "Thor: The Dark World",
-        "prequels": ["Thor", "The Avengers", "Guardians of the Galaxy", "Captain America: The Winter Soldier"]
-      },
-      {
-        "id": 9,
-        "title": "Captain America: The Winter Soldier",
-        "prequels": ["Captain America: The First Avenger", "The Avengers", "Thor: The Dark World"]
-      },
-      {
-        "id": 10,
-        "title": "Guardians of the Galaxy",
-        "prequels": ["The Incredible Hulk", "Iron Man 3"]
-      }
-    ]
-  }
-  
+  "movies": [
+    {
+      "id": 1,
+      "title": "Iron Man",
+      "prequels": [3, 6, 7, 8],
+      "banner":"/images/iron-man-1/banner.jpg",
+      "poster":"/images/iron-man-1/poster.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Incredible Hulk",
+      "prequels": [6, 4, 9, 10],
+      "banner":"/images/the-incredible-hulk/banner.jpg",
+      "poster":"/images/the-incredible-hulk/poster.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Iron Man 2",
+      "prequels": [1, 6, 7],
+      "banner":"/images/iron-man-2/banner.jpg",
+      "poster":"/images/iron-man-2/poster.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Thor",
+      "prequels": [8, 6, 10],
+      "banner":"/images/thor/banner.jpg",
+      "poster":"/images/thor/poster.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Captain America: The First Avenger",
+      "prequels": [9, 6],
+      "banner":"/images/captain-america-1/banner.jpg",
+      "poster":"/images/captain-america-1/poster.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Avengers",
+      "prequels": [1, 2, 4, 5],
+      "banner":"/images/avengers-1/banner.jpg",
+      "poster":"/images/avengers-1/poster.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Iron Man 3",
+      "prequels": [1, 3, 6, 8, 10],
+      "banner":"/images/iron-man-3/banner.jpg",
+      "poster":"/images/iron-man-3/poster.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Thor: The Dark World",
+      "prequels": [4, 6, 7, 9],
+      "banner":"/images/thor-2/banner.jpg",
+      "poster":"/images/thor-2/poster.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Captain America: The Winter Soldier",
+      "prequels": [5, 6, 8],
+      "banner":"/images/captain-america-2/banner.jpg",
+      "poster":"/images/captain-america-2/poster.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Guardians of the Galaxy",
+      "prequels": [2, 7],
+      "banner":"/images/gotg-1/banner.jpg",
+      "poster":"/images/gotg-1/poster.jpg"
+    }
+  ]
+}

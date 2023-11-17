@@ -1,5 +1,7 @@
 export type Movie = {
     id:number,
     title: string,
-    prequels:string[]
+    prequels:number[],
+    banner:string,
+    poster:string
 }

@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    margin: 0;
+    padding: 0;
+}
+
 /* Target the scrollbar track */
-ul::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 6px;
 }
 
 /* Target the scrollbar thumb (the draggable bar) */
-ul::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: black;
     border-radius: 10px;
     box-shadow: 3 3 5px 1px #fff;
