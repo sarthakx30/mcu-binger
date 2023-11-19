@@ -4,7 +4,7 @@ import MovieDetails from './MovieDetails';
 import Controls from './Controls';
 import Image from 'next/image';
 import { db } from '../firebase';
-import { ref, onValue, get } from 'firebase/database';
+import { ref, onValue, get, goOffline } from 'firebase/database';
 
 // export const dynamicParams = false;
 
@@ -23,16 +23,25 @@ const getMovies = async () => {
         return JSON.parse(res);
     }
     else {
-        let res: Movie[];
         const movieRef = ref(db, 'movies/');
-        onValue(movieRef, (snapshot) => {
-            res = snapshot.val();
-        });
+        try {
+            const snapshot = await get(movieRef);
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                return data;
+            } else {
+                console.log('No data available');
+                return null;
+            }
+        }
+        catch (err) {
+            console.log(err);
+            throw err;
+        }
         // if (!res.ok) {
         //     notFound(); // returns 404 page
         // }
         // console.log(typeof res);
-        return res;
     }
 }
 

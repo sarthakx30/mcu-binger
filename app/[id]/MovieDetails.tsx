@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Movie } from "../types/app";
 import { useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide,SwiperClass } from 'swiper/react';
 import { Pagination, Scrollbar,Controller, EffectFade, EffectCards } from 'swiper/modules';
 import { useSwiper } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,8 +21,8 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const MovieDetails = ({ movies }: { movies: Movie[] }) => {
     const swiper = useSwiper();
     const [controlledBannerSwiper, setControlledBannerSwiper] = useState(swiper);
-    const [controlledTextSwiper, setControlledTextSwiper] = useState(swiper)
-    const [posterSwiper, setPosterSwiper] = useState(null);
+    const [controlledTextSwiper, setControlledTextSwiper] = useState(swiper);
+    const [posterSwiper, setPosterSwiper] = useState(swiper);
 
     const [watchButtonHovered, setWatchButtonHovered] = useState(false);
 
@@ -98,8 +98,8 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                                     ">
                                         <p>Watch On</p>
                                         <div className="relative bottom-0.5">
-                                            <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} />
-                                            <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} />
+                                            <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} alt='disneyPlusBlack' />
+                                            <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
                                         </div>
                                     </button>
                                     <p className="text-center text-lg leading-tight">{movie.description}</p>
@@ -109,7 +109,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                     </Swiper>
                 </div>
                 <div className="flex flex-row justify-center space-x-5">
-                    <button onClick={() => posterSwiper.slidePrev()}
+                    <button onClick={() => posterSwiper?.slidePrev()}
                         className="
                             border-2 p-2
                             hover:bg-white
@@ -120,7 +120,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                     >
                         <FontAwesomeIcon icon={faArrowLeft} size="xl" />
                     </button>
-                    <button onClick={() => posterSwiper.slideNext()}
+                    <button onClick={() => posterSwiper?.slideNext()}
                         className="
                             border-2 p-2
                             hover:bg-white

@@ -3,15 +3,24 @@ import Search from './search';
 import { Movie } from './types/app';
 import Banner from './components/banner-main.png';
 import { db } from './firebase';
-import {ref,onValue,getDatabase} from 'firebase/database';
+import { ref, onValue, getDatabase, goOffline,get } from 'firebase/database';
 
 const getMovies = async () => {
-  let res:Movie[];
   const movieRef = ref(db, 'movies/');
-  onValue(movieRef, (snapshot) => {
-    res = snapshot.val();
-  });
-  return res;
+  try {
+    const snapshot = await get(movieRef);
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      return data;
+    } else {
+      console.log('No data available');
+      return null;
+    }
+  }
+  catch (err) {
+    console.log(err);
+    throw err;
+  }
 }
 
 const Home = async () => {
