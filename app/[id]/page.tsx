@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation';
 import MovieDetails from './MovieDetails';
 import Controls from './Controls';
 import Image from 'next/image';
-// import img from '/images/iron-man-1/poster.jpg';
+import { db } from '../firebase';
+import {ref,onValue} from 'firebase/database';
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     const res = await fetch('http://localhost:4000/movies');
@@ -17,18 +18,28 @@ export async function generateStaticParams() {
 }
 
 const getMovies = async () => {
-    const res = await fetch('http://localhost:4000/movies');
-    if (!res.ok) {
-        notFound(); // returns 404 page
+    if (typeof window !== 'undefined' && window.localStorage) {
+        const res = localStorage.getItem('movies');
+        return JSON.parse(res);
     }
-    // console.log(res.json());
-    return res.json();
+    else {
+        let res: Movie[];
+        const movieRef = ref(db, 'movies/');
+        onValue(movieRef, (snapshot) => {
+            res = snapshot.val();
+        });
+        // if (!res.ok) {
+        //     notFound(); // returns 404 page
+        // }
+        return res;
+    }
 }
 
 const MoviePage = async ({ params }) => {
     const movies: Movie[] = await getMovies();
+    // console.log(movies);
     const selectedMovieId: number = params.id;
-    const selectedMovie = movies.find(movie => movie.id == selectedMovieId);
+    const selectedMovie = movies?.find(movie => movie.id == selectedMovieId);
 
     function getPrequelMovies() {
         const prequelsTitles = selectedMovie?.prequels.map(prequelId => {

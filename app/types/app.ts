@@ -4,5 +4,6 @@ export type Movie = {
     prequels:number[],
     banner:string,
     poster:string,
-    description:string
+    description:string,
+    watchLink:string,
 }

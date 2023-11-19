@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { Movie } from "../types/app";
-import Banner from '../components/banner-main.png'
 import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Controller, EffectFade, EffectCards } from 'swiper/modules';
+import { Pagination, Scrollbar,Controller, EffectFade, EffectCards } from 'swiper/modules';
 import { useSwiper } from "swiper/react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import DpLogoBlack from '../components/7033669_disney_plus_icon.png';
+import DpLogoWhite from '../components/7033669_disney_plus_icon (1).png';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -21,7 +22,9 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
     const swiper = useSwiper();
     const [controlledBannerSwiper, setControlledBannerSwiper] = useState(swiper);
     const [controlledTextSwiper, setControlledTextSwiper] = useState(swiper)
-    const [posterSwiper, setPosterSwiper] = useState(null)
+    const [posterSwiper, setPosterSwiper] = useState(null);
+
+    const [watchButtonHovered, setWatchButtonHovered] = useState(false);
 
     return (
         <div className="relative h-screen text-white">
@@ -54,7 +57,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                         effect='cards'
                         modules={[Controller, EffectCards]}
                         // centeredSlides={true}
-                        controller={{ control: [controlledBannerSwiper,controlledTextSwiper] }}
+                        controller={{ control: [controlledBannerSwiper, controlledTextSwiper] }}
                         onSwiper={setPosterSwiper}
                         className=""
                     >
@@ -63,24 +66,44 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                                 className=""
                                 key={idx}
                             >
-                                <Image className="mx-auto" src={movie.poster} width={200} height={200} alt='poster' />
+                                <Image className="mx-auto" src={movie.poster} width={150} height={200} alt='poster' quality={100} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
-                <div className="h-40 overflow-hidden">
+                <div className="h-full overflow-hidden">
                     <Swiper
                         className=""
                         // direction={'vertical'} // laggy and broken
+                        // style={{transform:'rotate(90deg)'}}
                         modules={[Controller]}
                         onSwiper={setControlledTextSwiper}
                     >
                         {movies.map((movie, idx) => (
                             <SwiperSlide
-                                className="px-20 py-5"
+                                className=""
+                                // style={{transform:'rotate(270deg)'}}
                                 key={idx}
                             >
-                                <p className="text-center">{movie.description}</p>
+                                <div className="px-20 py-5 flex flex-col justify-center items-center space-y-2">
+                                    <button onClick={() => window.open(movie.watchLink, '_blank')}
+                                        onMouseEnter={() => setWatchButtonHovered(true)}
+                                        onMouseLeave={() => setWatchButtonHovered(false)}
+                                        className="
+                                        flex flex-row bg-white text-black items-center space-x-1
+                                        hover:bg-black hover:text-white
+                                        border-2 border-black
+                                        hover:border-white
+                                        py-1 px-3 rounded-lg
+                                    ">
+                                        <p>Watch On</p>
+                                        <div className="relative bottom-0.5">
+                                            <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} />
+                                            <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} />
+                                        </div>
+                                    </button>
+                                    <p className="text-center text-lg leading-tight">{movie.description}</p>
+                                </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
