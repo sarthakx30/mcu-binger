@@ -20,7 +20,7 @@ import { ref, onValue, get, goOffline } from 'firebase/database';
 const getMovies = async () => {
     if (typeof window !== 'undefined' && window.localStorage) {
         const res = localStorage.getItem('movies');
-        return JSON.parse(res);
+        if(typeof res === 'string') return JSON.parse(res);
     }
     else {
         const movieRef = ref(db, 'movies/');
@@ -61,11 +61,12 @@ const MoviePage = async ({ params }) => {
     }
 
     const prequelMovies = getPrequelMovies();
+    const validPrequelMovies:Movie[] = prequelMovies?.filter((movie)=>movie!==null) as Movie[];
 
     return (
         <div className="w-full h-full">
             <MovieDetails
-                movies={prequelMovies}
+                movies={validPrequelMovies}
             />
             {/* <Controls /> */}
         </div>
