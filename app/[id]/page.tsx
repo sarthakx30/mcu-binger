@@ -6,16 +6,16 @@ import Image from 'next/image';
 import { db } from '../firebase';
 import { ref, onValue, get } from 'firebase/database';
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
-export async function generateStaticParams() {
-    const res = await fetch('http://localhost:4000/movies');
-    const movies = await res.json();
+// export async function generateStaticParams() {
+//     const res = await fetch('http://localhost:4000/movies');
+//     const movies = await res.json();
 
-    return movies.map((movie: Movie) => ({
-        id: movie.id.toString()
-    }));
-}
+//     return movies.map((movie: Movie) => ({
+//         id: movie.id.toString()
+//     }));
+// }
 
 const getMovies = async () => {
     if (typeof window !== 'undefined' && window.localStorage) {
