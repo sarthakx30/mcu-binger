@@ -4,7 +4,7 @@ import MovieDetails from './MovieDetails';
 import Controls from './Controls';
 import Image from 'next/image';
 import { db } from '../firebase';
-import {ref,onValue} from 'firebase/database';
+import { ref, onValue, get } from 'firebase/database';
 
 export const dynamicParams = false;
 
@@ -31,6 +31,7 @@ const getMovies = async () => {
         // if (!res.ok) {
         //     notFound(); // returns 404 page
         // }
+        // console.log(typeof res);
         return res;
     }
 }

@@ -35,7 +35,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                     modules={[Controller, EffectFade]}
                     onSwiper={setControlledBannerSwiper}
                 >
-                    {movies.map((movie, idx) => (
+                    {movies?.map((movie, idx) => (
                         <SwiperSlide key={idx}>
                             <div
                                 className="w-screen h-screen bg-cover bg-center"
@@ -61,7 +61,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                         onSwiper={setPosterSwiper}
                         className=""
                     >
-                        {movies.map((movie, idx) => (
+                        {movies?.map((movie, idx) => (
                             <SwiperSlide
                                 className=""
                                 key={idx}
@@ -79,7 +79,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                         modules={[Controller]}
                         onSwiper={setControlledTextSwiper}
                     >
-                        {movies.map((movie, idx) => (
+                        {movies?.map((movie, idx) => (
                             <SwiperSlide
                                 className=""
                                 // style={{transform:'rotate(270deg)'}}
