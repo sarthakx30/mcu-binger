@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
@@ -32,4 +32,23 @@ body{
     right: 0;
     margin-left: auto;
     margin-right: auto;
+}
+
+@keyframes textDown {
+    to {
+        opacity: 1;
+        transfrom: translateY(0px);
+    }
+}
+
+.textDown {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: 0.5s ease-in-out;
+    /* animation: textDown 1s ease-in-out forwards; */
+}
+
+.textDown.active {
+    opacity: 1;
+    transform: translateY(0px);
 }

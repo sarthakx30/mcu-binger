@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { Movie } from "../types/app";
-import { useState } from "react";
-import { Swiper, SwiperSlide,SwiperClass } from 'swiper/react';
-import { Pagination, Scrollbar,Controller, EffectFade, EffectCards } from 'swiper/modules';
-import { useSwiper } from "swiper/react";
+import { useState, useRef } from "react";
+import { useInView } from 'react-intersection-observer';
+import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
+import { Pagination, Scrollbar, Controller, EffectFade, EffectCards } from 'swiper/modules';
+import { useSwiper, useSwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DpLogoBlack from '../components/7033669_disney_plus_icon.png';
 import DpLogoWhite from '../components/7033669_disney_plus_icon (1).png';
@@ -20,9 +21,19 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const MovieDetails = ({ movies }: { movies: Movie[] }) => {
     const swiper = useSwiper();
+
     const [controlledBannerSwiper, setControlledBannerSwiper] = useState(swiper);
     const [controlledTextSwiper, setControlledTextSwiper] = useState(swiper);
     const [posterSwiper, setPosterSwiper] = useState(swiper);
+
+    const inViewRefs = movies.map(() => {
+        const [ref, inView] = useInView(
+            // {
+            //     triggerOnce: true
+            // }
+        );
+        return [ref, inView];
+    });
 
     const [watchButtonHovered, setWatchButtonHovered] = useState(false);
 
@@ -102,7 +113,13 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                                             <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
                                         </div>
                                     </button>
-                                    <p className="text-center text-lg leading-tight">{movie.description}</p>
+                                    <p
+                                        className={`text-2xl font-medium textDown ${inViewRefs[idx][1] ? 'active' : ''}`}
+                                        ref={inViewRefs[idx][0] as any}
+                                    >{movie.title}
+                                    </p>
+                                    {/* <p>Current slide is {swiperSlide.isActive ? 'active' : 'not active'}</p> */}
+                                    <p className="text-center text-lg leading-tight font-light">{movie.description}</p>
                                 </div>
                             </SwiperSlide>
                         ))}

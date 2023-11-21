@@ -18,31 +18,34 @@ import { ref, onValue, get, goOffline } from 'firebase/database';
 // }
 
 const getMovies = async () => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-        const res = localStorage.getItem('movies');
-        if(typeof res === 'string') return JSON.parse(res);
-    }
-    else {
-        const movieRef = ref(db, 'movies/');
-        try {
-            const snapshot = await get(movieRef);
-            if (snapshot.exists()) {
-                const data = snapshot.val();
-                return data;
-            } else {
-                console.log('No data available');
-                return null;
-            }
-        }
-        catch (err) {
-            console.log(err);
-            throw err;
-        }
+    const res = await fetch('http://localhost:4000/movies');
+    const movies = await res.json();
+    return movies;
+    // if (typeof window !== 'undefined' && window.localStorage) {
+    //     const res = localStorage.getItem('movies');
+    //     if(typeof res === 'string') return JSON.parse(res);
+    // }
+    // else {
+    //     const movieRef = ref(db, 'movies/');
+    //     try {
+    //         const snapshot = await get(movieRef);
+    //         if (snapshot.exists()) {
+    //             const data = snapshot.val();
+    //             return data;
+    //         } else {
+    //             console.log('No data available');
+    //             return null;
+    //         }
+    //     }
+    //     catch (err) {
+    //         console.log(err);
+    //         throw err;
+    //     }
         // if (!res.ok) {
         //     notFound(); // returns 404 page
         // }
         // console.log(typeof res);
-    }
+    // }
 }
 
 const MoviePage = async ({ params }) => {
