@@ -26,14 +26,14 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
     const [controlledTextSwiper, setControlledTextSwiper] = useState(swiper);
     const [posterSwiper, setPosterSwiper] = useState(swiper);
 
-    const inViewRefs = movies.map(() => {
-        const [ref, inView] = useInView(
-            // {
-            //     triggerOnce: true
-            // }
-        );
-        return [ref, inView];
-    });
+    // const inViewRefs = movies.map(() => {
+    //     const [ref, inView] = useInView(
+    //         // {
+    //         //     triggerOnce: true
+    //         // }
+    //     );
+    //     return [ref, inView];
+    // });
 
     const [watchButtonHovered, setWatchButtonHovered] = useState(false);
 
@@ -90,39 +90,46 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                         modules={[Controller]}
                         onSwiper={setControlledTextSwiper}
                     >
-                        {movies?.map((movie, idx) => (
-                            <SwiperSlide
-                                className=""
-                                // style={{transform:'rotate(270deg)'}}
-                                key={idx}
-                            >
-                                <div className="px-20 py-5 flex flex-col justify-center items-center space-y-2">
-                                    <button onClick={() => window.open(movie.watchLink, '_blank')}
-                                        onMouseEnter={() => setWatchButtonHovered(true)}
-                                        onMouseLeave={() => setWatchButtonHovered(false)}
-                                        className="
+                        {movies?.map((movie, idx) => {
+                            const [ref, inView] = useInView({
+                                // triggerOnce:true
+                            });
+
+                            return (
+                                <SwiperSlide
+                                    className=""
+                                    // style={{transform:'rotate(270deg)'}}
+                                    key={idx}
+                                >
+                                    <div className="px-20 py-5 flex flex-col justify-center items-center space-y-2">
+                                        <button onClick={() => window.open(movie.watchLink, '_blank')}
+                                            onMouseEnter={() => setWatchButtonHovered(true)}
+                                            onMouseLeave={() => setWatchButtonHovered(false)}
+                                            className="
                                         flex flex-row bg-white text-black items-center space-x-1
                                         hover:bg-black hover:text-white
                                         border-2 border-black
                                         hover:border-white
                                         py-1 px-3 rounded-lg
                                     ">
-                                        <p>Watch On</p>
-                                        <div className="relative bottom-0.5">
-                                            <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} alt='disneyPlusBlack' />
-                                            <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
-                                        </div>
-                                    </button>
-                                    <p
-                                        className={`text-2xl font-medium textDown ${inViewRefs[idx][1] ? 'active' : ''}`}
-                                        ref={inViewRefs[idx][0] as any}
-                                    >{movie.title}
-                                    </p>
-                                    {/* <p>Current slide is {swiperSlide.isActive ? 'active' : 'not active'}</p> */}
-                                    <p className="text-center text-lg leading-tight font-light">{movie.description}</p>
-                                </div>
-                            </SwiperSlide>
-                        ))}
+                                            <p>Watch On</p>
+                                            <div className="relative bottom-0.5">
+                                                <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} alt='disneyPlusBlack' />
+                                                <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
+                                            </div>
+                                        </button>
+                                        <p
+                                            className={`text-2xl font-medium textDown ${inView ? 'active' : ''}`}
+                                            ref={ref}
+                                        >
+                                            {movie.title}
+                                        </p>
+                                        {/* <p>Current slide is {swiperSlide.isActive ? 'active' : 'not active'}</p> */}
+                                        <p className="text-center text-lg leading-tight font-light">{movie.description}</p>
+                                    </div>
+                                </SwiperSlide>
+                            )
+                        })}
                     </Swiper>
                 </div>
                 <div className="flex flex-row justify-center space-x-5">
