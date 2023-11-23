@@ -6,4 +6,6 @@ export type Movie = {
     poster:string,
     description:string,
     watchLink:string,
+    imdb:string,
+    imdbRatings:number
 }

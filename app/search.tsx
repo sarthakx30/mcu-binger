@@ -38,7 +38,7 @@ const Search = ({ movieList }: { movieList: Movie[] }) => {
                     />
                 </label>
             </div>
-            <div className='listArea rounded-md w-1/2 max-w-md' style={{minWidth: '300px'}}>
+            <div className='listArea rounded-md w-1/2 max-w-md z-10' style={{minWidth: '300px'}}>
                 <ul className="bg-white overflow-y-auto max-h-60 rounded-md">
                     {filteredMovies?.map((movie) => (
                         <Link key={movie.id} href={`/${movie.id}`}>

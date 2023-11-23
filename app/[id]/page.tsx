@@ -21,10 +21,10 @@ const getMovies = async () => {
     // const res = await fetch('http://localhost:4000/movies');
     // const movies = await res.json();
     // return movies;
-    
+
     if (typeof window !== 'undefined' && window.localStorage) {
         const res = localStorage.getItem('movies');
-        if(typeof res === 'string') return JSON.parse(res);
+        if (typeof res === 'string') return JSON.parse(res);
     }
     else {
         const movieRef = ref(db, 'movies/');
@@ -42,12 +42,12 @@ const getMovies = async () => {
             console.log(err);
             throw err;
         }
-
-        // if (!res.ok) {
-        //     notFound(); // returns 404 page
-        // }
-        // console.log(typeof res);
     }
+
+    // if (!res.ok) {
+    //     notFound(); // returns 404 page
+    // }
+    // console.log(typeof res);
 }
 
 const MoviePage = async ({ params }) => {
@@ -66,7 +66,7 @@ const MoviePage = async ({ params }) => {
     }
 
     const prequelMovies = getPrequelMovies();
-    const validPrequelMovies:Movie[] = prequelMovies?.filter((movie)=>movie!==null) as Movie[];
+    const validPrequelMovies: Movie[] = prequelMovies?.filter((movie) => movie !== null) as Movie[];
 
     return (
         <div className="w-full h-full">

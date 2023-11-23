@@ -7,7 +7,9 @@
       "banner": "/images/iron-man-1/banner.jpg",
       "poster": "/images/iron-man-1/poster.jpg",
       "description": "Genius, billionaire, playboy, philanthropist Tony Stark becomes the armored superhero Iron Man.",
-      "watchLink":"https://www.hotstar.com/in/movies/iron-man/1660000038"
+      "watchLink":"https://www.hotstar.com/in/movies/iron-man/1660000038",
+      "imdb":"https://www.imdb.com/title/tt0371746/",
+      "imdbRatings":7.9
     },
     {
       "id": 2,
@@ -16,7 +18,9 @@
       "banner": "/images/the-incredible-hulk/banner.jpg",
       "poster": "/images/the-incredible-hulk/poster.jpg",
       "description": "Bruce Banner, a scientist on the run from the U.S. Government, must find a cure for the monster he turns into whenever he loses his temper.",
-      "watchLink":"https://www.hotstar.com/in/shows/the-incredible-hulk/1260015300"
+      "watchLink":"https://www.hotstar.com/in/shows/the-incredible-hulk/1260015300",
+      "imdb":"https://www.imdb.com/title/tt0800080/",
+      "imdbRatings":6.6
     },
     {
       "id": 3,
@@ -25,7 +29,9 @@
       "banner": "/images/iron-man-2/banner.jpg",
       "poster": "/images/iron-man-2/poster.jpg",
       "description": "With the world now aware that he is Iron Man, Tony Stark must contend with both his declining health and a vengeful mad man with ties to his father's legacy.",
-      "watchLink":"https://www.hotstar.com/in/movies/iron-man-2/1660000039"
+      "watchLink":"https://www.hotstar.com/in/movies/iron-man-2/1660000039",
+      "imdb":"https://www.imdb.com/title/tt1228705/",
+      "imdbRatings":6.9
     },
     {
       "id": 4,
@@ -34,7 +40,9 @@
       "banner": "/images/thor/banner.jpg",
       "poster": "/images/thor/poster.jpg",
       "description": "The powerful but arrogant god Thor is cast out of Asgard to live amongst humans on Earth, where he learns what it takes to be a true hero.",
-      "watchLink":"https://www.hotstar.com/in/movies/iron-man/1660000038"
+      "watchLink":"https://www.hotstar.com/in/movies/iron-man/1660000038",
+      "imdb":"https://www.imdb.com/title/tt0800369/",
+      "imdbRatings":7.0
     },
     {
       "id": 5,
@@ -43,7 +51,9 @@
       "banner": "/images/captain-america-1/banner.jpg",
       "poster": "/images/captain-america-1/poster.jpg",
       "description": "Steve Rogers, a rejected military soldier, transforms into Captain America after taking a dose of a 'Super-Soldier serum.'",
-      "watchLink":"https://www.hotstar.com/in/movies/captain-america-the-first-avenger/1660000034"
+      "watchLink":"https://www.hotstar.com/in/movies/captain-america-the-first-avenger/1660000034",
+      "imdb":"https://www.imdb.com/title/tt0458339/",
+      "imdbRatings":6.9
     },
     {
       "id": 6,
@@ -52,7 +62,9 @@
       "banner": "/images/avengers-1/banner.jpg",
       "poster": "/images/avengers-1/poster.jpg",
       "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
-      "watchLink":"https://www.hotstar.com/in/movies/marvels-the-avengers/1660000015"
+      "watchLink":"https://www.hotstar.com/in/movies/marvels-the-avengers/1660000015",
+      "imdb":"https://www.imdb.com/title/tt0848228",
+      "imdbRatings":8.0
     },
     {
       "id": 7,
@@ -61,7 +73,9 @@
       "banner": "/images/iron-man-3/banner.jpg",
       "poster": "/images/iron-man-3/poster.jpg",
       "description": "When Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, he starts an odyssey of rebuilding and retribution.",
-      "watchLink":"https://www.hotstar.com/in/movies/iron-man-3/1660000042"
+      "watchLink":"https://www.hotstar.com/in/movies/iron-man-3/1660000042",
+      "imdb":"https://www.imdb.com/title/tt1300854/",
+      "imdbRatings":7.1
     },
     {
       "id": 8,
@@ -70,7 +84,9 @@
       "banner": "/images/thor-2/banner.jpg",
       "poster": "/images/thor-2/poster.jpg",
       "description": "Thor battles an ancient race of Dark Elves led by the vengeful Malekith who threatens to plunge the universe into darkness.",
-      "watchLink":"https://www.hotstar.com/in/movies/thor-the-dark-world/1260018142"
+      "watchLink":"https://www.hotstar.com/in/movies/thor-the-dark-world/1260018142",
+      "imdb":"https://www.imdb.com/title/tt1981115/",
+      "imdbRatings":6.8
     },
     {
       "id": 9,
@@ -79,7 +95,9 @@
       "banner": "/images/captain-america-2/banner.jpg",
       "poster": "/images/captain-america-2/poster.jpg",
       "description": "As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat from history: an assassin known as the Winter Soldier.",
-      "watchLink":"https://www.hotstar.com/in/movies/captain-america-the-winter-soldier/1260016410"
+      "watchLink":"https://www.hotstar.com/in/movies/captain-america-the-winter-soldier/1260016410",
+      "imdb":"https://www.imdb.com/title/tt1843866/",
+      "imdbRatings":7.8
     },
     {
       "id": 10,
@@ -88,7 +106,9 @@
       "banner": "/images/gotg-1/banner.jpg",
       "poster": "/images/gotg-1/poster.jpg",
       "description": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
-      "watchLink":"https://www.hotstar.com/in/movies/guardians-of-the-galaxy/1260018294"
+      "watchLink":"https://www.hotstar.com/in/movies/guardians-of-the-galaxy/1260018294",
+      "imdb":"https://www.imdb.com/title/tt2015381/",
+      "imdbRatings":8.0
     }
   ]
 }

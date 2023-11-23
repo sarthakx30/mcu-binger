@@ -10,6 +10,7 @@ import { useSwiper, useSwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DpLogoBlack from '../components/7033669_disney_plus_icon.png';
 import DpLogoWhite from '../components/7033669_disney_plus_icon (1).png';
+import ImdbLogo from '../components/613f661716381700041030fc.png';
 import SlideText from './SlideText';
 
 import 'swiper/css';
@@ -19,6 +20,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-fade';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const MovieDetails = ({ movies }: { movies: Movie[] }) => {
     const swiper = useSwiper();
@@ -89,23 +91,39 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                                 key={idx}
                             >
                                 <div className="px-20 py-5 flex flex-col justify-center items-center space-y-2">
-                                    <button onClick={() => window.open(movie.watchLink, '_blank')}
-                                        onMouseEnter={() => setWatchButtonHovered(true)}
-                                        onMouseLeave={() => setWatchButtonHovered(false)}
-                                        className="
-                                        flex flex-row bg-white text-black items-center space-x-1
-                                        hover:bg-black hover:text-white
-                                        border-2 border-black
-                                        hover:border-white
-                                        py-1 px-3 rounded-lg
-                                    ">
-                                        <p>Watch On</p>
-                                        <div className="relative bottom-0.5">
-                                            <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} alt='disneyPlusBlack' />
-                                            <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
-                                        </div>
-                                    </button>
-                                    <SlideText key={idx} title={movie.title}/>
+                                    <div className="flex flex-row space-x-5">
+                                        <button onClick={() => window.open(movie.watchLink, '_blank')}
+                                            onMouseEnter={() => setWatchButtonHovered(true)}
+                                            onMouseLeave={() => setWatchButtonHovered(false)}
+                                            className="
+                                            flex flex-row bg-white text-black items-center space-x-1
+                                            hover:bg-black hover:text-white
+                                            border-2 border-black
+                                            hover:border-white
+                                            py-1 px-3 rounded-lg
+                                        ">
+                                            <p>Watch On</p>
+                                            <div className="relative bottom-0.5">
+                                                <Image src={DpLogoBlack} width={50} height={20} style={{ display: watchButtonHovered ? 'none' : 'block' }} alt='disneyPlusBlack' />
+                                                <Image src={DpLogoWhite} width={50} height={20} style={{ display: watchButtonHovered ? 'block' : 'none' }} alt='disneyPlusWhite' />
+                                            </div>
+                                        </button>
+                                        <button onClick={() => window.open(movie.imdb, '_blank')}
+                                            className="
+                                            flex flex-row bg-white text-black items-center space-x-1
+                                            hover:bg-black hover:text-white
+                                            border-2 border-black
+                                            hover:border-white
+                                            py-1 px-3 rounded-lg
+                                        ">
+                                            <FontAwesomeIcon icon={faStar} color="gold" />
+                                            {/* <Image src={starIcon} width={30} height={20} alt='star-icon' /> */}
+                                            <p>{movie.imdbRatings}</p>
+                                            <p>on</p>
+                                            <Image src={ImdbLogo} width={50} height={20} alt='imdb-logo' />
+                                        </button>
+                                    </div>
+                                    <SlideText key={idx} title={movie.title} />
                                     {/* <p>Current slide is {swiperSlide.isActive ? 'active' : 'not active'}</p> */}
                                     <p className="text-center text-lg leading-tight font-light">{movie.description}</p>
                                 </div>
