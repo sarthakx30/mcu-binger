@@ -123,7 +123,7 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
                                             <Image src={ImdbLogo} width={50} height={20} alt='imdb-logo' />
                                         </button>
                                     </div>
-                                    <SlideText key={idx} title={movie.title} />
+                                    <SlideText title={movie.title} />
                                     {/* <p>Current slide is {swiperSlide.isActive ? 'active' : 'not active'}</p> */}
                                     <p className="text-center text-lg leading-tight font-light">{movie.description}</p>
                                 </div>

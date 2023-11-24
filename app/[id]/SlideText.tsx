@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 
-const SlideText=({ key, title })=> {
+const SlideText = ({ title }) => {
     const [ref, inView] = useInView({
         // triggerOnce:true
     })

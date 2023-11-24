@@ -6,16 +6,35 @@ import Image from 'next/image';
 import { db } from '../firebase';
 import { ref, onValue, get, goOffline } from 'firebase/database';
 
-// export const dynamicParams = false;
+export const dynamicParams = false;
 
-// export async function generateStaticParams() {
-//     const res = await fetch('http://localhost:4000/movies');
-//     const movies = await res.json();
+export async function generateStaticParams() {
+    const movieRef = ref(db, 'movies/');
+    try {
+        const snapshot = await get(movieRef);
+        if (snapshot.exists()) {
+            const movies = snapshot.val();
+            return movies.map((movie:Movie)=>({ 
+                id:movie.id.toString()
+            }))
+        } else {
+            console.log('No data available');
+            return null;
+        }
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    }
 
-//     return movies.map((movie: Movie) => ({
-//         id: movie.id.toString()
-//     }));
-// }
+
+    // const res = await fetch('http://localhost:4000/movies');
+    // const movies = await res.json();
+
+    // return movies.map((movie: Movie) => ({
+    //     id: movie.id.toString()
+    // }));
+}
 
 const getMovies = async () => {
     // const res = await fetch('http://localhost:4000/movies');
